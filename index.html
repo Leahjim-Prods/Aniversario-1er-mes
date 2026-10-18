@@ -1,19 +1,869 @@
+
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#050713"><title>Para Fiorela ✦ Nuestro universo</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head>
-<body><canvas id="stars"></canvas><audio id="song" loop preload="auto"><source src="assets/musica/nuestra-cancion.mp3" type="audio/mpeg"></audio>
-<section class="intro" id="intro"><small>UNA HISTORIA ENTRE MILLONES DE ESTRELLAS</small><div class="bigheart">♡</div><p class="float a">I just want to look at you</p><p class="float b">your smile stays with me</p><p class="float c">all my feelings are you</p><small>UN PEQUEÑO UNIVERSO PARA TI</small><h1>Para <em>Fiorela</em></h1><p>Hay encuentros que uno no planea…<br>y personas que no quiere dejar de mirar.</p><button class="primary" id="enter">Entrar a nuestro universo ✦</button><small id="soundNote">Toca para comenzar nuestra canción ♫</small></section>
-<header><a href="#home">M <span>✦</span> F</a><button id="music">♫ Nuestra canción</button></header>
-<main>
-<section class="hero" id="home"><small>✦ UN PEQUEÑO UNIVERSO PARA TI ✦</small><div class="planet">♡</div><p class="eyebrow">PARA MI PERSONA FAVORITA</p><h2>Fiorela,<br><em>este universo es para ti.</em></h2><p>De un LIVE inesperado a recuerdos que hoy guardo con cariño.<br>Esta pequeña historia es para ti.</p><button class="primary" data-scroll="#timeline">Descubrir nuestra historia ↓</button></section>
-<section id="timeline"><small class="eyebrow">01 / EL CAMINO HASTA AQUÍ</small><h2>Nuestra historia,<br><em>capítulo por capítulo.</em></h2><p class="muted center">Abre cada recuerdo y vuelve un ratito a ese momento.</p><div class="chapters">
-<button class="chapter selected" data-ch="0"><b>01</b><span><small>EL COMIENZO</small><strong>Aquel LIVE de TikTok</strong><em>Donde todo comenzó sin buscarlo.</em></span></button>
-<button class="chapter" data-ch="1"><b>02</b><span><small>LO PRIMERO QUE ME ATRAPÓ</small><strong>Tu sonrisa y tu voz</strong><em>Podría quedarme escuchándote sin aburrirme.</em></span></button>
-<button class="chapter" data-ch="2"><b>03</b><span><small>MI PRIMER VIAJE PARA VERTE</small><strong>Macusani</strong><em>La primera vez que viajé para ir a verte.</em></span></button>
-<button class="chapter" data-ch="3"><b>04</b><span><small>NUESTRO PRIMER VIAJE JUNTOS</small><strong>De Macusani a Arequipa</strong><em>Un camino que se volvió nuestro recuerdo.</em></span></button></div><article class="detail" id="detail"><div class="photo" id="photo">♡<small id="photocap">UN RECUERDO PARA GUARDAR</small></div><div><small id="chapterTag">EL COMIENZO</small><h3 id="chapterTitle">Aquel LIVE de TikTok</h3><p id="chapterText">Yo solo entré a mirar y terminé queriendo conocerte. Tu sonrisa y tu manera de hablar hicieron que quisiera quedarme un poquito más.</p></div></article></section>
-<section id="constellation"><small class="eyebrow">02 / NUESTROS RECUERDOS</small><h2>Una constelación<br><em>que solo tú puedes completar.</em></h2><p class="muted center">Toca las siete estrellas. Cada una guarda algo que quiero decirte.</p><div class="constellation" id="constellationArt"><svg viewBox="0 0 340 300"><path d="M170 30 L235 70 L278 140 L220 220 L170 270 L120 220 L62 140 L105 70 Z"/></svg><button style="--x:50%;--y:10%" data-star="0">✦</button><button style="--x:69%;--y:23%" data-star="1">✦</button><button style="--x:82%;--y:47%" data-star="2">✦</button><button style="--x:65%;--y:73%" data-star="3">✦</button><button style="--x:50%;--y:88%" data-star="4">✦</button><button style="--x:35%;--y:73%" data-star="5">✦</button><button style="--x:18%;--y:47%" data-star="6">✦</button><div id="heart">♡</div></div><p class="status" id="starStatus">0 / 7 estrellas reveladas</p><div class="reveal" id="starReveal">Elige una estrella para descubrir un recuerdo. ✨</div></section>
-<section id="songSection"><small class="eyebrow">03 / NUESTRA CANCIÓN</small><h2>Me quedaría<br><em>mirándote.</em></h2><div class="songcard"><div class="cover"><span>♡</span><strong>Me quedaría<br><em>mirándote</em></strong><small>MIJHAEL → FIORELA</small></div><div><p class="muted">Una canción hecha pensando en ti: en tu sonrisa, tu manera de hablar y aquel comienzo inesperado.</p><button class="primary" id="play">▶ Reproducir nuestra canción</button><div class="bar"><i id="bar"></i></div><small id="time">Nuestra canción guarda un poquito de este comienzo ♡</small></div></div></section>
-<section id="quiz"><small class="eyebrow">04 / UN JUEGUITO PARA TI</small><h2>¿Cuánto recuerdas<br><em>de nosotros?</em></h2><div class="quiz" id="quizBox"><small id="qcount">PREGUNTA 1 DE 5</small><div class="bar"><i id="qbar"></i></div><h3 id="question"></h3><div id="answers"></div><p id="feedback"></p><button class="primary" id="next" hidden>Siguiente →</button></div></section>
-<section id="letter"><small class="eyebrow">05 / ALGO QUE QUIERO DECIRTE</small><h2>Una carta<br><em>solo para ti.</em></h2><p class="muted center">Hay palabras que merecen abrirse despacito.</p><button class="envelope" id="openLetter"><span class="env">♡</span><strong id="envLabel">Toca el sobre para abrir mi carta</strong></button><article class="letter" id="letterText" hidden><small>PARA FIORELA, CON TODO MI CARIÑO</small><h3>Mi Fiorela,</h3><p>Qué curioso pensar que todo empezó con un LIVE de TikTok. Yo no sabía que iba a conocerte, ni que tu sonrisa y tu manera de hablar se me iban a quedar en la cabeza.</p><p>Después llegó Macusani: la primera vez que viajé para ir a verte. Y luego, nuestro primer viaje juntos de regreso a Arequipa. Son recuerdos que hacen que esos lugares y ese camino tengan un significado diferente para mí.</p><p>Hoy celebramos nuestro primer mes. No necesito que nuestra historia sea perfecta; me ilusiona que sea nuestra, que podamos conocernos de verdad y construir recuerdos a nuestro ritmo.</p><p>Quería regalarte algo hecho por mí, algo que pudieras abrir cuando quisieras recordar este comienzo. Gracias por aparecer de una manera tan inesperada. Me gusta tu sonrisa, me gusta escucharte y me gusta la idea de seguir descubriéndote.</p><p class="sign">Feliz primer mes, mi amor.<br><em>Con cariño, Mijhael. ♡</em></p></article></section>
-<section id="hug"><small class="eyebrow">06 / UN ABRAZO A LA DISTANCIA</small><h2>Si pudiera, ahora mismo<br><em>te daría un abrazo.</em></h2><div class="hugscene" id="hugscene"><div class="moon"></div><div class="hughearts">♡　♡</div><div id="particles"></div></div><button class="primary" id="hug">Toca para recibir tu abrazo ♡</button><p id="hugmsg" class="muted center">Cierra los ojos un segundo e imagina que te abrazo fuerte.</p></section>
-<section class="final" id="final"><div class="finalstar">✦</div><small class="eyebrow">Y ESTO RECIÉN COMIENZA</small><h2>De todas las casualidades,<br><em>me alegra que fueras tú.</em></h2><p class="muted">No sé cuántos caminos nos esperan, Fiorela.<br>Pero me gusta pensar en todo lo que todavía nos falta descubrir.</p><button class="primary" id="last">Descubrir el último mensaje ✨</button><div class="lastmsg" id="lastmsg" hidden><small>PARA MI FIORELA</small><p>Si pudiera volver a aquella noche, volvería a quedarme mirando tu sonrisa. Y si pudiera elegir de nuevo, volvería a elegir conocerte. Feliz primer mes, mi amor. ♡</p><strong>— Mijhael</strong></div><button class="secondary" data-scroll="#home">Volver a vivir nuestra historia ↑</button></section>
-</main><footer>HECHO CON CARIÑO POR MIJHAEL ✦ PARA FIORELA</footer><script src="script.js"></script></body></html>
+<html lang="es">
+
+<head>
+    <!-- ==================================
+         1. CONFIGURACIÓN GENERAL
+    =================================== -->
+
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#050713"
+    >
+
+    <title>Para Fiorela ✦ Nuestro universo</title>
+
+
+    <!-- ==================================
+         2. TIPOGRAFÍAS
+    =================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- ==================================
+         3. HOJA DE ESTILOS
+    =================================== -->
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ==================================
+         4. FONDO DE ESTRELLAS
+    =================================== -->
+
+    <canvas id="stars"></canvas>
+
+
+    <!-- ==================================
+         5. CANCIÓN DE FONDO
+    =================================== -->
+
+    <audio
+        id="song"
+        loop
+        preload="auto"
+    >
+        <source
+            src="assets/musica/nuestra-cancion.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+
+    <!-- ==================================
+         6. PORTADA DE BIENVENIDA
+    =================================== -->
+
+    <section class="intro" id="intro">
+
+        <small>
+            UNA HISTORIA ENTRE MILLONES DE ESTRELLAS
+        </small>
+
+        <div class="bigheart">
+            ♡
+        </div>
+
+        <p class="float a">
+            I just want to look at you
+        </p>
+
+        <p class="float b">
+            your smile stays with me
+        </p>
+
+        <p class="float c">
+            all my feelings are you
+        </p>
+
+        <small>
+            UN PEQUEÑO UNIVERSO PARA TI
+        </small>
+
+        <h1>
+            Para <em>Fiorela</em>
+        </h1>
+
+        <p>
+            Hay encuentros que uno no planea…
+            <br>
+            y personas que no quiere dejar de mirar.
+        </p>
+
+        <button
+            class="primary"
+            id="enter"
+        >
+            Entrar a nuestro universo ✦
+        </button>
+
+        <small id="soundNote">
+            Toca para comenzar nuestra canción ♫
+        </small>
+
+    </section>
+
+
+    <!-- ==================================
+         7. NAVEGACIÓN SUPERIOR
+    =================================== -->
+
+    <header>
+
+        <a href="#home">
+            M <span>✦</span> F
+        </a>
+
+        <button id="music">
+            ♫ Nuestra canción
+        </button>
+
+    </header>
+
+
+    <!-- ==================================
+         8. CONTENIDO PRINCIPAL
+    =================================== -->
+
+    <main>
+
+
+        <!-- ==================================
+             9. PRESENTACIÓN PRINCIPAL
+        =================================== -->
+
+        <section
+            class="hero"
+            id="home"
+        >
+
+            <small>
+                ✦ UN PEQUEÑO UNIVERSO PARA TI ✦
+            </small>
+
+            <div class="planet">
+                ♡
+            </div>
+
+            <p class="eyebrow">
+                PARA MI PERSONA FAVORITA
+            </p>
+
+            <h2>
+                Fiorela,
+                <br>
+                <em>este universo es para ti.</em>
+            </h2>
+
+            <p>
+                De un LIVE inesperado a recuerdos que hoy guardo con cariño.
+                <br>
+                Esta pequeña historia es para ti.
+            </p>
+
+            <button
+                class="primary"
+                data-scroll="#timeline"
+            >
+                Descubrir nuestra historia ↓
+            </button>
+
+        </section>
+
+
+        <!-- ==================================
+             10. LÍNEA DEL TIEMPO
+        =================================== -->
+
+        <section id="timeline">
+
+            <small class="eyebrow">
+                01 / EL CAMINO HASTA AQUÍ
+            </small>
+
+            <h2>
+                Nuestra historia,
+                <br>
+                <em>capítulo por capítulo.</em>
+            </h2>
+
+            <p class="muted center">
+                Abre cada recuerdo y vuelve un ratito a ese momento.
+            </p>
+
+
+            <!-- Recuerdo 1: El comienzo -->
+
+            <div class="chapters">
+
+                <button
+                    class="chapter selected"
+                    data-ch="0"
+                >
+                    <b>01</b>
+
+                    <span>
+                        <small>EL COMIENZO</small>
+
+                        <strong>
+                            Aquel LIVE de TikTok
+                        </strong>
+
+                        <em>
+                            Donde todo comenzó sin buscarlo.
+                        </em>
+                    </span>
+                </button>
+
+
+                <!-- Recuerdo 2: Su sonrisa -->
+
+                <button
+                    class="chapter"
+                    data-ch="1"
+                >
+                    <b>02</b>
+
+                    <span>
+                        <small>LO PRIMERO QUE ME ATRAPÓ</small>
+
+                        <strong>
+                            Tu sonrisa y tu voz
+                        </strong>
+
+                        <em>
+                            Podría quedarme escuchándote sin aburrirme.
+                        </em>
+                    </span>
+                </button>
+
+
+                <!-- Recuerdo 3: Macusani -->
+
+                <button
+                    class="chapter"
+                    data-ch="2"
+                >
+                    <b>03</b>
+
+                    <span>
+                        <small>MI PRIMER VIAJE PARA VERTE</small>
+
+                        <strong>
+                            Macusani
+                        </strong>
+
+                        <em>
+                            La primera vez que viajé para ir a verte.
+                        </em>
+                    </span>
+                </button>
+
+
+                <!-- Recuerdo 4: Viaje juntos -->
+
+                <button
+                    class="chapter"
+                    data-ch="3"
+                >
+                    <b>04</b>
+
+                    <span>
+                        <small>NUESTRO PRIMER VIAJE JUNTOS</small>
+
+                        <strong>
+                            De Macusani a Arequipa
+                        </strong>
+
+                        <em>
+                            Un camino que se volvió nuestro recuerdo.
+                        </em>
+                    </span>
+                </button>
+
+            </div>
+
+
+            <!-- Panel donde aparecen los detalles del recuerdo -->
+
+            <article
+                class="detail"
+                id="detail"
+            >
+
+                <div
+                    class="photo"
+                    id="photo"
+                >
+                    ♡
+
+                    <small id="photocap">
+                        UN RECUERDO PARA GUARDAR
+                    </small>
+                </div>
+
+                <div>
+
+                    <small id="chapterTag">
+                        EL COMIENZO
+                    </small>
+
+                    <h3 id="chapterTitle">
+                        Aquel LIVE de TikTok
+                    </h3>
+
+                    <p id="chapterText">
+                        Yo solo entré a mirar y terminé queriendo conocerte.
+                        Tu sonrisa y tu manera de hablar hicieron que quisiera
+                        quedarme un poquito más.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ==================================
+             11. CONSTELACIÓN DE RECUERDOS
+        =================================== -->
+
+        <section id="constellation">
+
+            <small class="eyebrow">
+                02 / NUESTROS RECUERDOS
+            </small>
+
+            <h2>
+                Una constelación
+                <br>
+                <em>que solo tú puedes completar.</em>
+            </h2>
+
+            <p class="muted center">
+                Toca las siete estrellas.
+                Cada una guarda algo que quiero decirte.
+            </p>
+
+
+            <!-- Estrellas conectadas -->
+
+            <div
+                class="constellation"
+                id="constellationArt"
+            >
+
+                <svg viewBox="0 0 340 300">
+
+                    <path
+                        d="M170 30 L235 70 L278 140 L220 220 L170 270 L120 220 L62 140 L105 70 Z"
+                    />
+
+                </svg>
+
+
+                <!-- Estrella 1 -->
+
+                <button
+                    style="--x:50%; --y:10%"
+                    data-star="0"
+                >
+                    ✦
+                </button>
+
+
+                <!-- Estrella 2 -->
+
+                <button
+                    style="--x:69%; --y:23%"
+                    data-star="1"
+                >
+                    ✦
+                </button>
+
+
+                <!-- Estrella 3 -->
+
+                <button
+                    style="--x:82%; --y:47%"
+                    data-star="2"
+                >
+                    ✦
+                </button>
+
+
+                <!-- Estrella 4 -->
+
+                <button
+                    style="--x:65%; --y:73%"
+                    data-star="3"
+                >
+                    ✦
+                </button>
+
+
+                <!-- Estrella 5 -->
+
+                <button
+                    style="--x:50%; --y:88%"
+                    data-star="4"
+                >
+                    ✦
+                </button>
+
+
+                <!-- Estrella 6 -->
+
+                <button
+                    style="--x:35%; --y:73%"
+                    data-star="5"
+                >
+                    ✦
+                </button>
+
+
+                <!-- Estrella 7 -->
+
+                <button
+                    style="--x:18%; --y:47%"
+                    data-star="6"
+                >
+                    ✦
+                </button>
+
+
+                <!-- Corazón central -->
+
+                <div id="heart">
+                    ♡
+                </div>
+
+            </div>
+
+
+            <!-- Progreso de estrellas -->
+
+            <p
+                class="status"
+                id="starStatus"
+            >
+                0 / 7 estrellas reveladas
+            </p>
+
+
+            <!-- Mensaje de cada estrella -->
+
+            <div
+                class="reveal"
+                id="starReveal"
+            >
+                Elige una estrella para descubrir un recuerdo. ✨
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             12. NUESTRA CANCIÓN
+        =================================== -->
+
+        <section id="songSection">
+
+            <small class="eyebrow">
+                03 / NUESTRA CANCIÓN
+            </small>
+
+            <h2>
+                Me quedaría
+                <br>
+                <em>mirándote.</em>
+            </h2>
+
+
+            <div class="songcard">
+
+
+                <!-- Portada decorativa -->
+
+                <div class="cover">
+
+                    <span>♡</span>
+
+                    <strong>
+                        Me quedaría
+                        <br>
+                        <em>mirándote</em>
+                    </strong>
+
+                    <small>
+                        MIJHAEL → FIORELA
+                    </small>
+
+                </div>
+
+
+                <!-- Controles musicales -->
+
+                <div>
+
+                    <p class="muted">
+                        Una canción hecha pensando en ti:
+                        en tu sonrisa, tu manera de hablar
+                        y aquel comienzo inesperado.
+                    </p>
+
+                    <button
+                        class="primary"
+                        id="play"
+                    >
+                        ▶ Reproducir nuestra canción
+                    </button>
+
+
+                    <!-- Barra de progreso -->
+
+                    <div class="bar">
+                        <i id="bar"></i>
+                    </div>
+
+                    <small id="time">
+                        Nuestra canción guarda un poquito de este comienzo ♡
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             13. MINIJUEGO ROMÁNTICO
+        =================================== -->
+
+        <section id="quiz">
+
+            <small class="eyebrow">
+                04 / UN JUEGUITO PARA TI
+            </small>
+
+            <h2>
+                ¿Cuánto recuerdas
+                <br>
+                <em>de nosotros?</em>
+            </h2>
+
+
+            <div
+                class="quiz"
+                id="quizBox"
+            >
+
+                <small id="qcount">
+                    PREGUNTA 1 DE 5
+                </small>
+
+
+                <!-- Progreso del juego -->
+
+                <div class="bar">
+                    <i id="qbar"></i>
+                </div>
+
+
+                <!-- Pregunta dinámica -->
+
+                <h3 id="question"></h3>
+
+
+                <!-- Respuestas dinámicas -->
+
+                <div id="answers"></div>
+
+
+                <!-- Resultado de la respuesta -->
+
+                <p id="feedback"></p>
+
+
+                <!-- Botón para avanzar -->
+
+                <button
+                    class="primary"
+                    id="next"
+                    hidden
+                >
+                    Siguiente →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             14. CARTA PARA FIORELA
+        =================================== -->
+
+        <section id="letter">
+
+            <small class="eyebrow">
+                05 / ALGO QUE QUIERO DECIRTE
+            </small>
+
+            <h2>
+                Una carta
+                <br>
+                <em>solo para ti.</em>
+            </h2>
+
+            <p class="muted center">
+                Hay palabras que merecen abrirse despacito.
+            </p>
+
+
+            <!-- Sobre animado -->
+
+            <button
+                class="envelope"
+                id="openLetter"
+            >
+
+                <span class="env">
+                    ♡
+                </span>
+
+                <strong id="envLabel">
+                    Toca el sobre para abrir mi carta
+                </strong>
+
+            </button>
+
+
+            <!-- Contenido de la carta -->
+
+            <article
+                class="letter"
+                id="letterText"
+                hidden
+            >
+
+                <small>
+                    PARA FIORELA, CON TODO MI CARIÑO
+                </small>
+
+                <h3>
+                    Mi Fiorela,
+                </h3>
+
+                <p>
+                    Qué curioso pensar que todo empezó con un LIVE de TikTok.
+                    Yo no sabía que iba a conocerte, ni que tu sonrisa y tu
+                    manera de hablar se me iban a quedar en la cabeza.
+                </p>
+
+                <p>
+                    Después llegó Macusani: la primera vez que viajé para ir
+                    a verte. Y luego, nuestro primer viaje juntos de regreso
+                    a Arequipa. Son recuerdos que hacen que esos lugares y
+                    ese camino tengan un significado diferente para mí.
+                </p>
+
+                <p>
+                    Hoy celebramos nuestro primer mes. No necesito que
+                    nuestra historia sea perfecta; me ilusiona que sea
+                    nuestra, que podamos conocernos de verdad y construir
+                    recuerdos a nuestro ritmo.
+                </p>
+
+                <p>
+                    Quería regalarte algo hecho por mí, algo que pudieras
+                    abrir cuando quisieras recordar este comienzo.
+                    Gracias por aparecer de una manera tan inesperada.
+                    Me gusta tu sonrisa, me gusta escucharte y me gusta
+                    la idea de seguir descubriéndote.
+                </p>
+
+                <p class="sign">
+                    Feliz primer mes, mi amor.
+                    <br>
+                    <em>Con cariño, Mijhael. ♡</em>
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <!-- ==================================
+             15. ABRAZO A DISTANCIA
+        =================================== -->
+
+        <section id="hug">
+
+            <small class="eyebrow">
+                06 / UN ABRAZO A LA DISTANCIA
+            </small>
+
+            <h2>
+                Si pudiera, ahora mismo
+                <br>
+                <em>te daría un abrazo.</em>
+            </h2>
+
+
+            <!-- Escena del abrazo -->
+
+            <div
+                class="hugscene"
+                id="hugscene"
+            >
+
+                <div class="moon"></div>
+
+                <div class="hughearts">
+                    ♡　♡
+                </div>
+
+                <div id="particles"></div>
+
+            </div>
+
+
+            <!-- Botón interactivo -->
+
+            <button
+                class="primary"
+                id="hug"
+            >
+                Toca para recibir tu abrazo ♡
+            </button>
+
+
+            <!-- Mensaje del abrazo -->
+
+            <p
+                id="hugmsg"
+                class="muted center"
+            >
+                Cierra los ojos un segundo e imagina que te abrazo fuerte.
+            </p>
+
+        </section>
+
+
+        <!-- ==================================
+             16. REVELACIÓN FINAL
+        =================================== -->
+
+        <section
+            class="final"
+            id="final"
+        >
+
+            <div class="finalstar">
+                ✦
+            </div>
+
+            <small class="eyebrow">
+                Y ESTO RECIÉN COMIENZA
+            </small>
+
+            <h2>
+                De todas las casualidades,
+                <br>
+                <em>me alegra que fueras tú.</em>
+            </h2>
+
+            <p class="muted">
+                No sé cuántos caminos nos esperan, Fiorela.
+                <br>
+                Pero me gusta pensar en todo lo que todavía nos falta descubrir.
+            </p>
+
+
+            <!-- Botón para revelar el mensaje -->
+
+            <button
+                class="primary"
+                id="last"
+            >
+                Descubrir el último mensaje ✨
+            </button>
+
+
+            <!-- Mensaje final oculto -->
+
+            <div
+                class="lastmsg"
+                id="lastmsg"
+                hidden
+            >
+
+                <small>
+                    PARA MI FIORELA
+                </small>
+
+                <p>
+                    Si pudiera volver a aquella noche, volvería a quedarme
+                    mirando tu sonrisa. Y si pudiera elegir de nuevo,
+                    volvería a elegir conocerte.
+                    Feliz primer mes, mi amor. ♡
+                </p>
+
+                <strong>
+                    — Mijhael
+                </strong>
+
+            </div>
+
+
+            <!-- Botón para volver al inicio -->
+
+            <button
+                class="secondary"
+                data-scroll="#home"
+            >
+                Volver a vivir nuestra historia ↑
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================================
+         17. PIE DE PÁGINA
+    =================================== -->
+
+    <footer>
+        HECHO CON CARIÑO POR MIJHAEL ✦ PARA FIORELA
+    </footer>
+
+
+    <!-- ==================================
+         18. FUNCIONALIDAD JAVASCRIPT
+    =================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
