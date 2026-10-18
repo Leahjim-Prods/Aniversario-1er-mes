@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#030612">
+  <meta name="description" content="Un universo creado por Mijhael para Fiorela.">
+  <title>Fiorela ✦ Nuestro universo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="starCanvas" aria-hidden="true"></canvas>
+  <div class="cosmic-glow glow-a" aria-hidden="true"></div>
+  <div class="cosmic-glow glow-b" aria-hidden="true"></div>
+
+  <audio id="songPlayer" preload="auto" loop>
+    <source src="assets/musica/nuestra-cancion.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="intro" id="intro">
+    <div class="intro-topline">UNA HISTORIA ENTRE MILLONES DE ESTRELLAS</div>
+    <div class="particle-heart" aria-hidden="true"><span>♡</span></div>
+    <div class="lyric lyric-one">I just want to look at you</div>
+    <div class="lyric lyric-two">your smile stays with me</div>
+    <div class="lyric lyric-three">all my feelings are you</div>
+    <div class="intro-title">Para <em>Fiorela</em></div>
+    <p class="intro-subtitle">Hay encuentros que uno no planea…<br>y personas que no quiere dejar de mirar.</p>
+    <button class="enter-button" id="enterBtn">Entrar a nuestro universo <span>✦</span></button>
+    <p class="sound-note" id="soundNote">♫ La canción empieza al entrar</p>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#inicio">M <span>✦</span> F</a>
+    <button class="music-toggle" id="musicToggle" aria-label="Reproducir o pausar canción">♫ <span id="musicLabel">Nuestra canción</span></button>
+  </header>
+
+  <main>
+    <section class="hero section" id="inicio">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> UN PEQUEÑO UNIVERSO PARA TI</div>
+      <div class="orbit-art" aria-hidden="true">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="planet"><span>♡</span></div>
+        <span class="orbit-star star-a">✧</span><span class="orbit-star star-b">✦</span><span class="orbit-star star-c">✧</span>
+      </div>
+      <p class="overline">Para mi persona favorita</p>
+      <h1>Fiorela,<br><em>este universo es para ti.</em></h1>
+      <p class="hero-copy">De un LIVE inesperado a recuerdos que hoy guardo con cariño.<br>Esta pequeña historia es para ti.</p>
+      <button class="primary-button" id="beginBtn">Descubrir nuestra historia <span>↓</span></button>
+      <div class="scroll-note">DESLIZA PARA DESCUBRIR <span>✧</span></div>
+    </section>
+
+    <section class="story section" id="historia">
+      <div class="section-label">01 / CÓMO COMENZÓ</div>
+      <div class="story-grid">
+        <div class="story-text">
+          <p class="small-kicker">Una coincidencia bonita</p>
+          <h2>Yo solo entré a un LIVE…<br><em>y apareciste tú.</em></h2>
+          <p>No imaginaba que una noche cualquiera me iba a llevar a conocerte. Entre tantas personas, hubo algo en ti que hizo que quisiera quedarme un ratito más.</p>
+          <p>Tu sonrisa. Tu manera de hablar. Esa sensación de que podía seguir mirándote y escuchándote sin aburrirme.</p>
+          <p>Y sin buscarlo, empezó una historia que hoy me alegra poder celebrar contigo.</p>
+          <div class="signature">— Mijhael <span>♡</span></div>
+        </div>
+        <figure class="memory-card">
+          <img src="assets/fotos/en-macusani.jpeg" alt="Recuerdo de Mijhael en Macusani" class="memory-photo">
+          <figcaption><span class="memory-number">RECUERDO 01</span><strong>Macusani</strong><small>La primera vez que viajé para ir a verte.</small></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="journey section" id="viajes">
+      <div class="section-label">02 / NUESTROS PRIMEROS RECUERDOS</div>
+      <div class="center-heading">
+        <p class="small-kicker">Dos viajes que guardo conmigo</p>
+        <h2>Hay caminos que se vuelven especiales<br><em>por la persona que te espera.</em></h2>
+        <p class="section-intro">Macusani siempre tendrá un lugar bonito en nuestra historia.</p>
+      </div>
+      <div class="journey-grid">
+        <article class="journey-card">
+          <div class="journey-photo-wrap"><img src="assets/fotos/en-macusani.jpeg" alt="Fotografía del viaje a Macusani" class="journey-photo"></div>
+          <div class="journey-copy"><span>EL PRIMER VIAJE</span><h3>Fui a Macusani por ti.</h3><p>La primera vez que viajé para ir a verte. Un viaje que significó mucho porque al final del camino estabas tú.</p></div>
+        </article>
+        <article class="journey-card">
+          <div class="journey-photo-wrap"><img src="assets/fotos/primer-viaje-juntos.jpeg" alt="Mijhael y Fiorela durante su primer viaje juntos" class="journey-photo"></div>
+          <div class="journey-copy"><span>NUESTRO PRIMER VIAJE JUNTOS</span><h3>De Macusani a Arequipa.</h3><p>Volver juntos a Arequipa convirtió el camino en un recuerdo nuestro. No era solo llegar a un lugar, era compartir el viaje contigo.</p></div>
+        </article>
+      </div>
+      <p class="journey-note">Y ojalá nos queden muchos caminos más por recorrer. ♡</p>
+    </section>
+
+    <section class="song section" id="cancion">
+      <div class="section-label">03 / NUESTRA CANCIÓN</div>
+      <div class="song-card">
+        <div class="album-art">
+          <div class="album-orbit orbit-a"></div><div class="album-orbit orbit-b"></div><div class="album-planet">♡</div>
+          <div class="album-text"><span>UNA CANCIÓN PARA TI</span><strong>Me quedaría<br>mirándote</strong><small>de Mijhael para Fiorela</small></div>
+        </div>
+        <div class="song-info">
+          <p class="small-kicker">Hecha pensando en ti</p>
+          <h2>Me quedaría<br><em>mirándote.</em></h2>
+          <p>Porque eso fue parte de lo primero que sentí: me gustó tu sonrisa, tu manera de hablar, y pensé que podría quedarme mirándote sin aburrirme.</p>
+          <div class="audio-controls">
+            <button id="playSongBtn" class="play-song">▶ <span>Reproducir nuestra canción</span></button>
+            <div class="audio-progress"><span id="progressBar"></span></div>
+            <div class="audio-time"><span id="currentTime">0:00</span><span id="duration">4:14</span></div>
+          </div>
+          <p class="audio-help" id="audioHelp">La canción acompaña este pequeño universo. ♡</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="little-things section" id="detalles">
+      <div class="section-label">04 / COSAS QUE ME GUSTAN DE TI</div>
+      <div class="center-heading">
+        <p class="small-kicker">Pequeños detalles, grandes sentimientos</p>
+        <h2>Hay cosas de ti<br><em>que se quedan conmigo.</em></h2>
+        <p class="section-intro">Toca cada estrella para descubrir un mensaje.</p>
+      </div>
+      <div class="message-stars">
+        <button class="message-star" data-message="Tu sonrisa fue una de las primeras cosas que me hicieron querer quedarme.">✦<span>Tu sonrisa</span></button>
+        <button class="message-star" data-message="Me gusta escucharte hablar. Podría quedarme ahí, compartiendo ese momento contigo, sin aburrirme.">✧<span>Tu manera de hablar</span></button>
+        <button class="message-star" data-message="Nunca imaginé que un LIVE de TikTok terminaría convirtiéndose en una parte tan bonita de mi historia.">✦<span>Aquel LIVE</span></button>
+        <button class="message-star" data-message="Me ilusiona seguir conociéndote, descubrir tus pequeños mundos y crear recuerdos juntos.">✧<span>Lo que viene</span></button>
+      </div>
+      <div class="message-reveal" id="messageReveal" aria-live="polite">Elige una estrella para leer tu mensaje ✨</div>
+    </section>
+
+    <section class="letter section" id="carta">
+      <div class="section-label">05 / UNA CARTA PARA TI</div>
+      <div class="letter-wrap">
+        <div class="letter-top">PARA FIORELA, CON TODO MI CARIÑO</div>
+        <div class="letter-content">
+          <p class="letter-greeting">Mi Fiorela,</p>
+          <p>Qué curioso pensar que todo empezó con un LIVE de TikTok. Yo no sabía que iba a conocerte, ni que tu sonrisa y tu manera de hablar se me iban a quedar en la cabeza.</p>
+          <p>Después llegó Macusani: la primera vez que viajé para ir a verte. Y luego, nuestro primer viaje juntos de regreso a Arequipa. Son recuerdos que hacen que esos lugares y ese camino tengan un significado diferente para mí.</p>
+          <p>Hoy celebramos nuestro primer mes, y sé que todavía nos queda mucho por descubrir. No necesito que nuestra historia sea perfecta; me ilusiona que sea nuestra, que podamos conocernos de verdad y construir recuerdos a nuestro ritmo.</p>
+          <p>Quería regalarte algo hecho por mí, algo que pudieras abrir cuando quisieras recordar este comienzo. Por eso hice este pequeño universo: para guardar aquí una parte de lo que siento y recordarte lo bonito que fue encontrarte.</p>
+          <p>Gracias por aparecer de una manera tan inesperada. Me gusta tu sonrisa, me gusta escucharte y me gusta la idea de seguir descubriéndote.</p>
+          <p class="letter-signoff">Feliz primer mes, mi amor.<br><span>Con cariño, Mijhael.</span> <b>♡</b></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="finale section" id="final">
+      <div class="final-star">✦</div>
+      <p class="small-kicker">Y esto recién comienza</p>
+      <h2>De todas las casualidades,<br><em>me alegra que fueras tú.</em></h2>
+      <p>No sé cuántos caminos nos esperan, Fiorela.<br>Pero me gusta pensar en todo lo que todavía nos falta descubrir.</p>
+      <button class="outline-button" id="wishBtn">Pide un deseo conmigo ✨</button>
+      <p class="wish-result" id="wishResult" aria-live="polite"></p>
+      <div class="final-signature">Feliz primer mes <span>♡</span></div>
+    </section>
+  </main>
+
+  <footer>HECHO CON CARIÑO POR MIJHAEL <span>✦</span> PARA FIORELA</footer>
+  <script src="script.js"></script>
+</body>
+</html>
