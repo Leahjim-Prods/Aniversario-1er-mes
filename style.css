@@ -1,1 +1,417 @@
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:20px}body{margin:0;background:#050713;color:#f8f5ff;font-family:'DM Sans',Arial,sans-serif;overflow-x:hidden}button{font:inherit;cursor:pointer}#stars{position:fixed;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none}body:not(.entered) main,body:not(.entered) header,body:not(.entered) footer{visibility:hidden;opacity:0;pointer-events:none}body.entered main,body.entered header,body.entered footer{visibility:visible;opacity:1;transition:opacity .8s}.intro{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:30px 20px;background:radial-gradient(ellipse at 50% 45%,#151a3a,#060916 55%,#02040b);transition:.8s}.intro.hidden{opacity:0;visibility:hidden}.intro>small{font-size:.58rem;letter-spacing:.16em;color:#a9c8f4;line-height:1.8}.bigheart{font-size:clamp(6rem,19vw,10rem);color:#ffd8fb;text-shadow:0 0 15px white,0 0 45px #ff82df;animation:pulse 2.3s infinite}.float{position:absolute;font:italic clamp(.6rem,1.7vw,.95rem) Georgia;max-width:34vw;color:#eee6ff;text-shadow:0 0 12px #a8c8ff}.a{left:7%;top:34%;transform:rotate(-6deg)}.b{right:5%;top:46%;transform:rotate(5deg)}.c{left:18%;top:61%}h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:500}h1{font-size:clamp(3rem,9vw,6rem);margin:8px 0}h1 em,h2 em{color:#dcbaff}p{line-height:1.8}.intro p:not(.float){color:#c8cce6;margin:0}.primary,.secondary{border:0;border-radius:999px;padding:13px 20px;font-weight:700}.primary{background:linear-gradient(105deg,#e8c3ff,#a8dfff);color:#12152f;box-shadow:0 8px 28px #9e9cff26}.intro .primary{margin:20px 0 10px}.secondary{background:transparent;border:1px solid #777ba9;color:#dfe3ff;margin-top:20px}.intro #soundNote{margin-top:8px}header{position:absolute;top:0;left:0;right:0;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;z-index:3}header a{color:white;text-decoration:none;font:1.2rem Georgia;letter-spacing:.15em}header a span{color:#dcbaff}header button{background:#111633b8;color:#e6e7ff;border:1px solid #a8b2df40;border-radius:30px;padding:10px 14px}.hero,main>section{width:min(900px,calc(100% - 34px));margin:auto}.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:90px 0 45px}.hero h2,.final h2{font-size:clamp(2.6rem,7vw,4.7rem);line-height:1.1;margin:12px 0}.hero p{color:#bdc5e5}.hero .primary{margin-top:12px}.eyebrow{display:block;color:#9ed7ff;font-size:.62rem;letter-spacing:.16em;font-weight:700;margin-bottom:17px}.planet{font-size:4rem;width:120px;height:120px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 30% 25%,#ded6ff,#707ad2 45%,#17214e);box-shadow:0 0 45px #8a90ff50;margin:24px 0;animation:pulse 4s infinite}main>section:not(.hero){padding:78px 0}main>section>h2{text-align:center;font-size:clamp(2.3rem,6vw,4rem);line-height:1.1;margin:8px 0 16px}.muted{color:#b9c2e3}.center{text-align:center}.chapters{display:grid;gap:10px;max-width:690px;margin:28px auto}.chapter{display:flex;gap:14px;align-items:center;text-align:left;background:#0d1433cc;color:white;border:1px solid #bdbdff28;border-radius:15px;padding:14px}.chapter b{border:1px solid #a9b8ed65;border-radius:50%;width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;color:#cbbcff}.chapter span{display:grid;gap:5px}.chapter small{font-size:.55rem;letter-spacing:.13em;color:#9fb9e9}.chapter strong{font:1.2rem Georgia}.chapter em{font-size:.78rem;color:#b6c0e1;font-style:normal}.chapter.selected{border-color:#d1b6ff9c;background:#1b214d}.detail{display:grid;grid-template-columns:.8fr 1fr;gap:24px;align-items:center;padding:17px;border:1px solid #bdbdff2b;border-radius:20px;background:#101633a8}.photo{min-height:230px;border-radius:13px;background:radial-gradient(circle at 50% 30%,#5b5c9a,#141a3e 70%);display:grid;place-items:center;font-size:4rem;position:relative;overflow:hidden}.photo img{position:absolute;width:100%;height:100%;object-fit:cover}.photo small{position:absolute;bottom:12px;left:12px;background:#050713bb;padding:7px;border-radius:20px;font-size:.55rem;letter-spacing:.1em}.detail>div+div{padding:10px}.detail>div+div small{color:#a6c5ff;font-size:.62rem;letter-spacing:.13em}.detail h3{font-size:2rem;margin:10px 0}.detail p{color:#bbc3e3;font-size:.9rem}.constellation{position:relative;width:min(100%,370px);aspect-ratio:340/300;margin:22px auto}.constellation svg{position:absolute;width:100%;height:100%}.constellation path{fill:none;stroke:#9eabf36b;stroke-dasharray:3 5}.constellation button{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;border:1px solid #b8b5ff88;background:#111735;color:#d9c6ff;font-size:1.2rem;box-shadow:0 0 14px #858bff2b}.constellation button.unlocked{background:radial-gradient(circle,#fff,#c6a7ff 45%,#242456);color:white;box-shadow:0 0 26px #e2aaff}.constellation.complete path{stroke:#ffc4f5;stroke-dasharray:none;filter:drop-shadow(0 0 4px #dcaaff)}#heart{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:3rem;color:#ffb9ef;text-shadow:0 0 24px #d48cff;pointer-events:none}.status{text-align:center;color:#a9c8ff;font-size:.8rem}.reveal{max-width:580px;min-height:58px;text-align:center;margin:auto;padding:15px;border:1px solid #c5b9ff25;border-radius:14px;background:#111735a8;color:#dcdcff;line-height:1.7;font-size:.87rem}.songcard{display:grid;grid-template-columns:.85fr 1fr;gap:7%;align-items:center;max-width:760px;margin:28px auto;padding:clamp(18px,4vw,35px);border:1px solid #bdbdff30;border-radius:22px;background:linear-gradient(135deg,#191f4a,#090d24)}.cover{aspect-ratio:1;position:relative;overflow:hidden;border-radius:15px;background:radial-gradient(circle at 65% 30%,#e2b5ff88,transparent 13%),radial-gradient(ellipse at 30% 40%,#5863b6,#111a45 60%,#07091c);display:flex;flex-direction:column;justify-content:end;padding:18px;box-shadow:0 15px 35px #0005}.cover:before{content:'♡';position:absolute;top:23%;left:40%;font-size:3rem;color:#ffddff;text-shadow:0 0 25px #ff9fe8}.cover strong{font:clamp(1.6rem,4vw,2.6rem) Georgia;z-index:1}.cover em{color:#dfbdff}.cover small{font-size:.48rem;letter-spacing:.14em;margin-top:10px;z-index:1}.songcard p{line-height:1.8}.songcard .primary{width:100%}.bar{height:4px;background:#9299c83d;border-radius:9px;margin:20px 0 8px;overflow:hidden}.bar i{display:block;width:0;height:100%;background:linear-gradient(90deg,#e6baff,#a8dfff)}#time{color:#929fc9;font-size:.7rem}.quiz{max-width:600px;margin:25px auto;padding:25px;border:1px solid #bdbdff30;border-radius:20px;background:#101633}.quiz>small{color:#9eb8e9;letter-spacing:.12em;font-size:.6rem}.quiz h3{font-size:1.7rem}.answer{display:block;width:100%;text-align:left;padding:13px;margin:8px 0;background:#090f2a;color:#e6e8ff;border:1px solid #b7baff40;border-radius:11px}.answer.correct{border-color:#9be5d4;background:#17443d}.answer.wrong{border-color:#ffb5dc;background:#4b1f42}.quiz #feedback{min-height:28px;color:#d6c7ff;font-size:.83rem}.envelope{display:flex;align-items:center;flex-direction:column;gap:18px;background:none;border:0;color:#cbd3f5;margin:20px auto;width:100%}.env{width:min(310px,78vw);aspect-ratio:1.45;background:linear-gradient(140deg,#c6b5ff,#777fc4 55%,#3f4d8d);display:grid;place-items:center;border-radius:8px;box-shadow:0 20px 60px #9c8cff2b;color:white;font-size:3.5rem;position:relative;transition:.5s}.env:before{content:'';position:absolute;inset:0;background:#e4d9ff;clip-path:polygon(0 0,100% 0,50% 55%);transform-origin:top;transition:.6s}.env:after{content:'♡';position:absolute;font-size:3rem;text-shadow:0 0 18px #f8b9ff}.envelope.open .env{transform:translateY(5px)}.envelope.open .env:before{transform:rotateX(180deg)}.envelope.open .env:after{opacity:0}.letter{max-width:720px;margin:25px auto;padding:clamp(24px,5vw,48px);border-radius:5px 15px 15px 5px;background:linear-gradient(140deg,#f8f0ff,#dfe8ff);color:#242747;font:1rem/1.9 Georgia;animation:fade .6s}.letter>small{font:700 .58rem Arial;letter-spacing:.14em;color:#666b9b}.letter h3{font-size:2rem;color:#50518a}.letter .sign{margin-top:25px;color:#555c92;font-style:italic}.hugscene{height:230px;max-width:600px;margin:25px auto 16px;position:relative;overflow:hidden;border:1px solid #bdbdff30;border-radius:20px;background:radial-gradient(ellipse at 50% 85%,#6a5bb55e,transparent 60%),#0b102b}.moon{position:absolute;top:25px;left:calc(50% - 52px);width:104px;height:104px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#f3dfff,#9a8fda 55%,#484e91);box-shadow:0 0 45px #b49fff5e}.hughearts{position:absolute;bottom:25px;left:0;right:0;text-align:center;font-size:6rem;color:#282655;text-shadow:0 0 15px #dcaeff}.hugscene.active .hughearts{animation:pulse .7s infinite alternate}#hug{display:block;margin:auto}.final{text-align:center;padding:100px 0!important}.finalstar{font-size:3rem;color:#e4c9ff;text-shadow:0 0 30px #a9a4ff}.lastmsg{max-width:580px;margin:25px auto;padding:25px;border:1px solid #d9baff66;border-radius:18px;background:#141a40;animation:fade .7s}.lastmsg p{font:1.2rem/1.9 Georgia;color:#f2eaff}.lastmsg small{font-size:.58rem;letter-spacing:.16em;color:#b8c8f1}.lastmsg strong{color:#d8c1ff;font:italic 1.1rem Georgia}footer{text-align:center;padding:28px 15px 35px;border-top:1px solid #bdbdff15;color:#7884b3;font-size:.55rem;letter-spacing:.14em} @keyframes pulse{50%{transform:scale(1.05)}}@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@media(max-width:650px){.float{font-size:.61rem;max-width:40vw}.a{top:28%;left:3%}.b{top:39%;right:3%}.c{top:51%;left:8%}.bigheart{font-size:6.5rem}.intro h1{font-size:3rem}.intro>p:not(.float){font-size:.82rem}.hero{min-height:94svh}.hero h2{font-size:2.7rem}.detail,.songcard{grid-template-columns:1fr}.photo{min-height:240px}.songcard{gap:22px}.cover{width:min(100%,320px);margin:auto}.chapter strong{font-size:1.05rem}.chapter em{font-size:.73rem}.letter{font-size:.94rem}.section-heading p{font-size:.85rem}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+const audio = $('#song');
+
+// ================================
+// 1. REPRODUCCIÓN DE LA CANCIÓN
+// ================================
+
+function play() {
+    audio.volume = 0.78;
+
+    audio.play().catch(() => {
+        $('#soundNote').textContent =
+            'Toca Entrar para comenzar la música ♫';
+    });
+}
+
+$('#enter').onclick = () => {
+    document.body.classList.add('entered');
+    $('#intro').classList.add('hidden');
+    play();
+};
+
+$('#music').onclick = () => {
+    audio.paused ? play() : audio.pause();
+};
+
+$('#play').onclick = () => {
+    audio.paused ? play() : audio.pause();
+};
+
+audio.addEventListener('timeupdate', () => {
+    if (audio.duration) {
+        $('#bar').style.width =
+            (audio.currentTime / audio.duration * 100) + '%';
+
+        $('#time').textContent =
+            Math.floor(audio.currentTime / 60) + ':' +
+            String(Math.floor(audio.currentTime % 60)).padStart(2, '0');
+    }
+});
+
+$$('[data-scroll]').forEach(button => {
+    button.onclick = () => {
+        $(button.dataset.scroll).scrollIntoView({
+            behavior: 'smooth'
+        });
+    };
+});
+
+
+// ================================
+// 2. LÍNEA DEL TIEMPO
+// ================================
+
+const chapters = [
+    [
+        'EL COMIENZO',
+        'Aquel LIVE de TikTok',
+        'Yo solo entré a mirar y terminé queriendo conocerte. Tu sonrisa y tu manera de hablar hicieron que quisiera quedarme un poquito más.',
+        '♡'
+    ],
+    [
+        'LO PRIMERO QUE ME ATRAPÓ',
+        'Tu sonrisa y tu manera de hablar',
+        'Te dije que me gustó tu sonrisa y cómo hablabas. Sentía que podía quedarme mirándote y escuchándote sin aburrirme.',
+        '♡'
+    ],
+    [
+        'MI PRIMER VIAJE PARA VERTE',
+        'Macusani',
+        'Fue la primera vez que viajé para ir a verte. El destino era Macusani, pero lo especial era saber que al llegar estarías tú.',
+        '✦'
+    ],
+    [
+        'NUESTRO PRIMER VIAJE JUNTOS',
+        'De Macusani a Arequipa',
+        'Nuestro primer viaje juntos fue de regreso a Arequipa desde Macusani. Compartir aquel camino hizo que el trayecto se convirtiera en un recuerdo nuestro.',
+        '♡'
+    ]
+];
+
+$$('.chapter').forEach((button, index) => {
+    button.onclick = () => {
+        $$('.chapter').forEach(chapter => {
+            chapter.classList.toggle('selected', chapter === button);
+        });
+
+        $('#chapterTag').textContent = chapters[index][0];
+        $('#chapterTitle').textContent = chapters[index][1];
+        $('#chapterText').textContent = chapters[index][2];
+        $('#photo').firstChild.textContent = chapters[index][3];
+
+        $('#photocap').textContent =
+            'RECUERDO ' + String(index + 1).padStart(2, '0');
+    };
+});
+
+
+// ================================
+// 3. CONSTELACIÓN DE RECUERDOS
+// ================================
+
+const memories = [
+    'Todo empezó en un LIVE de TikTok, cuando menos lo esperaba. Qué suerte que me quedé.',
+    'Tu sonrisa fue una de las primeras cosas que me hicieron querer conocerte.',
+    'Me gusta tu manera de hablar; podría quedarme escuchándote sin aburrirme.',
+    'Macusani siempre será especial porque fue la primera vez que viajé para ir a verte.',
+    'Nuestro primer viaje juntos de regreso a Arequipa es un camino que guardo con cariño.',
+    'Este primer mes es apenas el comienzo de todo lo que podemos descubrir juntos.',
+    'Si volviera a aquella noche, volvería a quedarme mirando tu sonrisa, Fiorela. ♡'
+];
+
+let found = new Set();
+
+$$('[data-star]').forEach(button => {
+    button.onclick = () => {
+        const index = Number(button.dataset.star);
+
+        found.add(index);
+        button.classList.add('unlocked');
+
+        $('#starReveal').textContent = memories[index];
+
+        $('#starStatus').textContent =
+            found.size + ' / 7 estrellas reveladas';
+
+        if (found.size === 7) {
+            $('#constellationArt').classList.add('complete');
+            $('#heart').textContent = '♥';
+
+            $('#starStatus').textContent =
+                '¡Completaste nuestra constelación! ♡';
+        }
+    };
+});
+
+
+// ================================
+// 4. MINIJUEGO ROMÁNTICO
+// ================================
+
+const qs = [
+    [
+        '¿Dónde nos conocimos?',
+        ['En una fiesta', 'En un LIVE de TikTok', 'En el colegio', 'Por un amigo'],
+        1
+    ],
+    [
+        '¿Qué me gustó primero de ti?',
+        ['Tu sonrisa y tu manera de hablar', 'Tu forma de bailar', 'Tu ropa', 'Tu playlist'],
+        0
+    ],
+    [
+        '¿A dónde viajé para verte por primera vez?',
+        ['Arequipa', 'Puno', 'Macusani', 'Cusco'],
+        2
+    ],
+    [
+        '¿Cuál fue nuestro primer viaje juntos?',
+        ['De Arequipa a Lima', 'De Macusani de regreso a Arequipa', 'A la playa', 'A Cusco'],
+        1
+    ],
+    [
+        '¿Qué celebramos en esta página?',
+        ['Una semana', 'Seis meses', 'Un año', 'Nuestro primer mes'],
+        3
+    ]
+];
+
+let qi = 0;
+let score = 0;
+let answered = false;
+
+function renderQ() {
+    answered = false;
+
+    const question = qs[qi];
+
+    $('#qcount').textContent =
+        'PREGUNTA ' + (qi + 1) + ' DE 5';
+
+    $('#qbar').style.width = ((qi + 1) * 20) + '%';
+    $('#question').textContent = question[0];
+    $('#answers').innerHTML = '';
+    $('#feedback').textContent = '';
+    $('#next').hidden = true;
+
+    question[1].forEach((answer, index) => {
+        const button = document.createElement('button');
+
+        button.className = 'answer';
+        button.textContent = answer;
+
+        button.onclick = () => {
+            if (answered) return;
+
+            answered = true;
+
+            $$('.answer').forEach((option, optionIndex) => {
+                option.disabled = true;
+
+                if (optionIndex === question[2]) {
+                    option.classList.add('correct');
+                }
+            });
+
+            if (index === question[2]) {
+                score++;
+                $('#feedback').textContent = '¡Exacto! ♡';
+            } else {
+                button.classList.add('wrong');
+
+                $('#feedback').textContent =
+                    'Casi, mi amor. La respuesta correcta está marcada. ♡';
+            }
+
+            $('#next').hidden = false;
+
+            $('#next').textContent =
+                qi === 4 ? 'Ver resultado ♡' : 'Siguiente →';
+        };
+
+        $('#answers').appendChild(button);
+    });
+}
+
+renderQ();
+
+$('#next').onclick = () => {
+    if (qi < 4) {
+        qi++;
+        renderQ();
+    } else {
+        $('#quizBox').innerHTML = `
+            <h3>Lo bonito no es acertarlo todo…</h3>
+            <p>
+                Acertaste ${score} de 5.
+                Lo importante es que todavía nos quedan
+                muchos recuerdos por crear. ♡
+            </p>
+            <button class="primary" onclick="location.reload()">
+                Volver a jugar
+            </button>
+        `;
+    }
+};
+
+
+// ================================
+// 5. CARTA SECRETA
+// ================================
+
+$('#openLetter').onclick = () => {
+    const button = $('#openLetter');
+    const open = button.classList.toggle('open');
+
+    $('#letterText').hidden = !open;
+
+    $('#envLabel').textContent = open
+        ? 'Mi carta, para que la leas con calma ♡'
+        : 'Toca el sobre para abrir mi carta';
+
+    if (open) {
+        setTimeout(() => {
+            $('#letterText').scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+            });
+        }, 200);
+    }
+};
+
+
+// ================================
+// 6. ABRAZO A DISTANCIA
+// ================================
+
+$('#hug').onclick = () => {
+    const scene = $('#hugscene');
+
+    scene.classList.add('active');
+
+    $('#hugmsg').textContent =
+        'Te mando un abrazo enorme, Fiorela. Aunque estemos lejos, quiero que sientas todo mi cariño. Ojalá pudiera abrazarte ahora mismo. ♡';
+
+    const holder = $('#particles');
+
+    holder.innerHTML = '';
+
+    for (let i = 0; i < 26; i++) {
+        const heart = document.createElement('span');
+
+        heart.textContent = ['♡', '♥', '✦'][i % 3];
+
+        heart.style.cssText = `
+            position: absolute;
+            left: ${Math.random() * 95}%;
+            top: ${55 + Math.random() * 40}%;
+            color: #ffc1ee;
+            font-size: ${15 + Math.random() * 20}px;
+            transition: transform 1.7s, opacity 1.7s;
+        `;
+
+        holder.append(heart);
+
+        requestAnimationFrame(() => {
+            heart.style.transform =
+                `translateY(-${80 + Math.random() * 120}px)`;
+
+            heart.style.opacity = 0;
+        });
+    }
+
+    setTimeout(() => {
+        scene.classList.remove('active');
+    }, 1500);
+};
+
+
+// ================================
+// 7. REVELACIÓN FINAL
+// ================================
+
+$('#last').onclick = () => {
+    $('#lastmsg').hidden = false;
+
+    $('#last').textContent = 'Mensaje descubierto ♡';
+    $('#last').disabled = true;
+
+    $('#lastmsg').scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+    });
+};
+
+
+// ================================
+// 8. FONDO ANIMADO DE ESTRELLAS
+// ================================
+
+const canvas = $('#stars');
+const ctx = canvas.getContext('2d');
+
+let W, H, D;
+let stars = [];
+
+function resize() {
+    D = Math.min(devicePixelRatio || 1, 2);
+
+    W = innerWidth;
+    H = innerHeight;
+
+    canvas.width = W * D;
+    canvas.height = H * D;
+
+    ctx.setTransform(D, 0, 0, D, 0, 0);
+
+    stars = Array.from(
+        {
+            length: Math.min(220, Math.floor(W * H / 4200))
+        },
+        () => ({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            r: 0.3 + Math.random() * 1.3,
+            a: 0.25 + Math.random() * 0.7,
+            s: 0.08 + Math.random() * 0.25,
+            c: Math.random() > 0.8
+                ? '190,180,255'
+                : '155,210,255'
+        })
+    );
+}
+
+function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    stars.forEach(star => {
+        star.y -= star.s;
+
+        if (star.y < 0) {
+            star.y = H;
+            star.x = Math.random() * W;
+        }
+
+        ctx.beginPath();
+
+        ctx.arc(
+            star.x,
+            star.y,
+            star.r,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle = `rgba(${star.c},${star.a})`;
+        ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+}
+
+window.addEventListener('resize', resize);
+
+resize();
+draw();
+
+window.addEventListener('load', () => {
+    try {
+        audio.play().catch(() => {});
+    } catch (error) {
+        // El navegador puede bloquear el audio automático.
+    }
+});
