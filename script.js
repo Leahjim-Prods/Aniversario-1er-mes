@@ -1,8 +1,412 @@
-const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];const audio=$('#song');function play(){audio.volume=.78;audio.play().catch(()=>$('#soundNote').textContent='Toca Entrar para comenzar la música ♫')}$('#enter').onclick=()=>{document.body.classList.add('entered');$('#intro').classList.add('hidden');play()};$('#music').onclick=()=>audio.paused?play():audio.pause();$('#play').onclick=()=>audio.paused?play():audio.pause();audio.addEventListener('timeupdate',()=>{if(audio.duration){$('#bar').style.width=audio.currentTime/audio.duration*100+'%';$('#time').textContent=Math.floor(audio.currentTime/60)+':'+String(Math.floor(audio.currentTime%60)).padStart(2,'0')}});$$('[data-scroll]').forEach(b=>b.onclick=()=>$(b.dataset.scroll).scrollIntoView({behavior:'smooth'}));
-const chapters=[['EL COMIENZO','Aquel LIVE de TikTok','Yo solo entré a mirar y terminé queriendo conocerte. Tu sonrisa y tu manera de hablar hicieron que quisiera quedarme un poquito más.','♡'],['LO PRIMERO QUE ME ATRAPÓ','Tu sonrisa y tu manera de hablar','Te dije que me gustó tu sonrisa y cómo hablabas. Sentía que podía quedarme mirándote y escuchándote sin aburrirme.','♡'],['MI PRIMER VIAJE PARA VERTE','Macusani','Fue la primera vez que viajé para ir a verte. El destino era Macusani, pero lo especial era saber que al llegar estarías tú.','✦'],['NUESTRO PRIMER VIAJE JUNTOS','De Macusani a Arequipa','Nuestro primer viaje juntos fue de regreso a Arequipa desde Macusani. Compartir aquel camino hizo que el trayecto se convirtiera en un recuerdo nuestro.','♡']];$$('.chapter').forEach((b,i)=>b.onclick=()=>{$$('.chapter').forEach(x=>x.classList.toggle('selected',x===b));$('#chapterTag').textContent=chapters[i][0];$('#chapterTitle').textContent=chapters[i][1];$('#chapterText').textContent=chapters[i][2];$('#photo').firstChild.textContent=chapters[i][3];$('#photocap').textContent='RECUERDO '+String(i+1).padStart(2,'0')});
-const memories=['Todo empezó en un LIVE de TikTok, cuando menos lo esperaba. Qué suerte que me quedé.','Tu sonrisa fue una de las primeras cosas que me hicieron querer conocerte.','Me gusta tu manera de hablar; podría quedarme escuchándote sin aburrirme.','Macusani siempre será especial porque fue la primera vez que viajé para ir a verte.','Nuestro primer viaje juntos de regreso a Arequipa es un camino que guardo con cariño.','Este primer mes es apenas el comienzo de todo lo que podemos descubrir juntos.','Si volviera a aquella noche, volvería a quedarme mirando tu sonrisa, Fiorela. ♡'];let found=new Set();$$('[data-star]').forEach(b=>b.onclick=()=>{let i=+b.dataset.star;found.add(i);b.classList.add('unlocked');$('#starReveal').textContent=memories[i];$('#starStatus').textContent=found.size+' / 7 estrellas reveladas';if(found.size===7){$('#constellationArt').classList.add('complete');$('#heart').textContent='♥';$('#starStatus').textContent='¡Completaste nuestra constelación! ♡'}});
-const qs=[['¿Dónde nos conocimos?',['En una fiesta','En un LIVE de TikTok','En el colegio','Por un amigo'],1],['¿Qué me gustó primero de ti?',['Tu sonrisa y tu manera de hablar','Tu forma de bailar','Tu ropa','Tu playlist'],0],['¿A dónde viajé para verte por primera vez?',['Arequipa','Puno','Macusani','Cusco'],2],['¿Cuál fue nuestro primer viaje juntos?',['De Arequipa a Lima','De Macusani de regreso a Arequipa','A la playa','A Cusco'],1],['¿Qué celebramos en esta página?',['Una semana','Seis meses','Un año','Nuestro primer mes'],3]];let qi=0,score=0,answered=false;function renderQ(){answered=false;let q=qs[qi];$('#qcount').textContent='PREGUNTA '+(qi+1)+' DE 5';$('#qbar').style.width=(qi+1)*20+'%';$('#question').textContent=q[0];$('#answers').innerHTML='';$('#feedback').textContent='';$('#next').hidden=true;q[1].forEach((a,i)=>{let b=document.createElement('button');b.className='answer';b.textContent=a;b.onclick=()=>{if(answered)return;answered=true;$$('.answer').forEach((x,j)=>{x.disabled=true;if(j===q[2])x.classList.add('correct')});if(i===q[2]){score++;$('#feedback').textContent='¡Exacto! ♡'}else{b.classList.add('wrong');$('#feedback').textContent='Casi, mi amor. La respuesta correcta está marcada. ♡'}$('#next').hidden=false;$('#next').textContent=qi===4?'Ver resultado ♡':'Siguiente →'};$('#answers').appendChild(b)})}renderQ();$('#next').onclick=()=>{if(qi<4){qi++;renderQ()}else{$('#quizBox').innerHTML='<h3>Lo bonito no es acertarlo todo…</h3><p>Acertaste '+score+' de 5. Lo importante es que todavía nos quedan muchos recuerdos por crear. ♡</p><button class="primary" onclick="location.reload()">Volver a jugar</button>'}};
-$('#openLetter').onclick=()=>{let b=$('#openLetter'),open=b.classList.toggle('open');$('#letterText').hidden=!open;$('#envLabel').textContent=open?'Mi carta, para que la leas con calma ♡':'Toca el sobre para abrir mi carta';if(open)setTimeout(()=>$('#letterText').scrollIntoView({behavior:'smooth',block:'nearest'}),200)};
-$('#hug').onclick=()=>{let scene=$('#hugscene');scene.classList.add('active');$('#hugmsg').textContent='Te mando un abrazo enorme, Fiorela. Aunque estemos lejos, quiero que sientas todo mi cariño. Ojalá pudiera abrazarte ahora mismo. ♡';let holder=$('#particles');holder.innerHTML='';for(let i=0;i<26;i++){let h=document.createElement('span');h.textContent=['♡','♥','✦'][i%3];h.style.cssText=`position:absolute;left:${Math.random()*95}%;top:${55+Math.random()*40}%;color:#ffc1ee;font-size:${15+Math.random()*20}px;transition:transform 1.7s,opacity 1.7s`;holder.append(h);requestAnimationFrame(()=>{h.style.transform=`translateY(-${80+Math.random()*120}px)`;h.style.opacity=0})}setTimeout(()=>scene.classList.remove('active'),1500)};
-$('#last').onclick=()=>{$('#lastmsg').hidden=false;$('#last').textContent='Mensaje descubierto ♡';$('#last').disabled=true;$('#lastmsg').scrollIntoView({behavior:'smooth',block:'center'})};
-const canvas=$('#stars'),ctx=canvas.getContext('2d');let W,H,D,stars=[];function resize(){D=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;canvas.width=W*D;canvas.height=H*D;ctx.setTransform(D,0,0,D,0,0);stars=Array.from({length:Math.min(220,Math.floor(W*H/4200))},()=>({x:Math.random()*W,y:Math.random()*H,r:.3+Math.random()*1.3,a:.25+Math.random()*.7,s:.08+Math.random()*.25,c:Math.random()>.8?'190,180,255':'155,210,255'}))}function draw(){ctx.clearRect(0,0,W,H);stars.forEach(s=>{s.y-=s.s;if(s.y<0){s.y=H;s.x=Math.random()*W}ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(${s.c},${s.a})`;ctx.fill()});requestAnimationFrame(draw)}window.addEventListener('resize',resize);resize();draw();window.addEventListener('load',()=>{try{audio.play().catch(()=>{})}catch(e){}});
+
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+const audio = $('#song');
+
+function play() {
+    audio.volume = 0.78;
+
+    audio.play().catch(() => {
+        $('#soundNote').textContent =
+            'Toca Entrar para comenzar la música ♫';
+    });
+}
+
+// INTRODUCCIÓN Y MÚSICA
+$('#enter').onclick = () => {
+    document.body.classList.add('entered');
+    $('#intro').classList.add('hidden');
+    play();
+};
+
+$('#music').onclick = () => {
+    audio.paused ? play() : audio.pause();
+};
+
+$('#play').onclick = () => {
+    audio.paused ? play() : audio.pause();
+};
+
+// BARRA DE PROGRESO DE LA CANCIÓN
+audio.addEventListener('timeupdate', () => {
+    if (audio.duration) {
+        $('#bar').style.width =
+            (audio.currentTime / audio.duration) * 100 + '%';
+
+        $('#time').textContent =
+            Math.floor(audio.currentTime / 60) +
+            ':' +
+            String(Math.floor(audio.currentTime % 60)).padStart(2, '0');
+    }
+});
+
+// DESPLAZAMIENTO ENTRE SECCIONES
+$$('[data-scroll]').forEach(b => {
+    b.onclick = () => {
+        $(b.dataset.scroll).scrollIntoView({
+            behavior: 'smooth'
+        });
+    };
+});
+
+// CAPÍTULOS DE NUESTRA HISTORIA
+const chapters = [
+    [
+        'EL COMIENZO',
+        'Aquel LIVE de TikTok',
+        'Yo solo entré a mirar y terminé queriendo conocerte. Tu sonrisa y tu manera de hablar hicieron que quisiera quedarme un poquito más.',
+        '♡'
+    ],
+    [
+        'LO PRIMERO QUE ME ATRAPÓ',
+        'Tu sonrisa y tu manera de hablar',
+        'Te dije que me gustó tu sonrisa y cómo hablabas. Sentía que podía quedarme mirándote y escuchándote sin aburrirme.',
+        '♡'
+    ],
+    [
+        'MI PRIMER VIAJE PARA VERTE',
+        'Macusani',
+        'Fue la primera vez que viajé para ir a verte. El destino era Macusani, pero lo especial era saber que al llegar estarías tú.',
+        '✦'
+    ],
+    [
+        'NUESTRO PRIMER VIAJE JUNTOS',
+        'De Macusani a Arequipa',
+        'Nuestro primer viaje juntos fue de regreso a Arequipa desde Macusani. Compartir aquel camino hizo que el trayecto se convirtiera en un recuerdo nuestro.',
+        '♡'
+    ]
+];
+
+$$('.chapter').forEach((b, i) => {
+    b.onclick = () => {
+        $$('.chapter').forEach(x => {
+            x.classList.toggle('selected', x === b);
+        });
+
+        $('#chapterTag').textContent = chapters[i][0];
+        $('#chapterTitle').textContent = chapters[i][1];
+        $('#chapterText').textContent = chapters[i][2];
+        $('#photo').firstChild.textContent = chapters[i][3];
+
+        $('#photocap').textContent =
+            'RECUERDO ' + String(i + 1).padStart(2, '0');
+    };
+});
+
+// CONSTELACIÓN DE RECUERDOS
+const memories = [
+    'Todo empezó en un LIVE de TikTok, cuando menos lo esperaba. Qué suerte que me quedé.',
+    'Tu sonrisa fue una de las primeras cosas que me hicieron querer conocerte.',
+    'Me gusta tu manera de hablar; podría quedarme escuchándote sin aburrirme.',
+    'Macusani siempre será especial porque fue la primera vez que viajé para ir a verte.',
+    'Nuestro primer viaje juntos de regreso a Arequipa es un camino que guardo con cariño.',
+    'Este primer mes es apenas el comienzo de todo lo que podemos descubrir juntos.',
+    'Si volviera a aquella noche, volvería a quedarme mirando tu sonrisa, Fiorela. ♡'
+];
+
+let found = new Set();
+
+$$('[data-star]').forEach(b => {
+    b.onclick = () => {
+        let i = +b.dataset.star;
+
+        found.add(i);
+        b.classList.add('unlocked');
+
+        $('#starReveal').textContent = memories[i];
+
+        $('#starStatus').textContent =
+            found.size + ' / 7 estrellas reveladas';
+
+        if (found.size === 7) {
+            $('#constellationArt').classList.add('complete');
+            $('#heart').textContent = '♥';
+
+            $('#starStatus').textContent =
+                '¡Completaste nuestra constelación! ♡';
+        }
+    };
+});
+
+// JUEGO DE PREGUNTAS
+const qs = [
+    [
+        '¿Dónde nos conocimos?',
+        [
+            'En una fiesta',
+            'En un LIVE de TikTok',
+            'En el colegio',
+            'Por un amigo'
+        ],
+        1
+    ],
+    [
+        '¿Qué me gustó primero de ti?',
+        [
+            'Tu sonrisa y tu manera de hablar',
+            'Tu forma de bailar',
+            'Tu ropa',
+            'Tu playlist'
+        ],
+        0
+    ],
+    [
+        '¿A dónde viajé para verte por primera vez?',
+        [
+            'Arequipa',
+            'Puno',
+            'Macusani',
+            'Cusco'
+        ],
+        2
+    ],
+    [
+        '¿Cuál fue nuestro primer viaje juntos?',
+        [
+            'De Arequipa a Lima',
+            'De Macusani de regreso a Arequipa',
+            'A la playa',
+            'A Cusco'
+        ],
+        1
+    ],
+    [
+        '¿Qué celebramos en esta página?',
+        [
+            'Una semana',
+            'Seis meses',
+            'Un año',
+            'Nuestro primer mes'
+        ],
+        3
+    ]
+];
+
+let qi = 0;
+let score = 0;
+let answered = false;
+
+function renderQ() {
+    answered = false;
+
+    let q = qs[qi];
+
+    $('#qcount').textContent =
+        'PREGUNTA ' + (qi + 1) + ' DE 5';
+
+    $('#qbar').style.width = (qi + 1) * 20 + '%';
+
+    $('#question').textContent = q[0];
+    $('#answers').innerHTML = '';
+    $('#feedback').textContent = '';
+    $('#next').hidden = true;
+
+    q[1].forEach((a, i) => {
+        let b = document.createElement('button');
+
+        b.className = 'answer';
+        b.textContent = a;
+
+        b.onclick = () => {
+            if (answered) return;
+
+            answered = true;
+
+            $$('.answer').forEach((x, j) => {
+                x.disabled = true;
+
+                if (j === q[2]) {
+                    x.classList.add('correct');
+                }
+            });
+
+            if (i === q[2]) {
+                score++;
+
+                $('#feedback').textContent = '¡Exacto! ♡';
+            } else {
+                b.classList.add('wrong');
+
+                $('#feedback').textContent =
+                    'Casi, mi amor. La respuesta correcta está marcada. ♡';
+            }
+
+            $('#next').hidden = false;
+
+            $('#next').textContent =
+                qi === 4 ? 'Ver resultado ♡' : 'Siguiente →';
+        };
+
+        $('#answers').appendChild(b);
+    });
+}
+
+renderQ();
+
+$('#next').onclick = () => {
+    if (qi < 4) {
+        qi++;
+        renderQ();
+    } else {
+        $('#quizBox').innerHTML =
+            '<h3>Lo bonito no es acertarlo todo…</h3>' +
+            '<p>Acertaste ' + score +
+            ' de 5. Lo importante es que todavía nos quedan muchos recuerdos por crear. ♡</p>' +
+            '<button class="primary" onclick="location.reload()">Volver a jugar</button>';
+    }
+};
+
+// CARTA ROMÁNTICA
+$('#openLetter').onclick = () => {
+    let b = $('#openLetter');
+    let open = b.classList.toggle('open');
+
+    $('#letterText').hidden = !open;
+
+    $('#envLabel').textContent = open
+        ? 'Mi carta, para que la leas con calma ♡'
+        : 'Toca el sobre para abrir mi carta';
+
+    if (open) {
+        setTimeout(() => {
+            $('#letterText').scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+            });
+        }, 200);
+    }
+};
+
+// ABRAZO A LA DISTANCIA
+$('#hug').onclick = () => {
+    let scene = $('#hugscene');
+
+    scene.classList.add('active');
+
+    $('#hugmsg').textContent =
+        'Te mando un abrazo enorme, Fiorela. Aunque estemos lejos, quiero que sientas todo mi cariño. Ojalá pudiera abrazarte ahora mismo. ♡';
+
+    let holder = $('#particles');
+
+    holder.innerHTML = '';
+
+    for (let i = 0; i < 26; i++) {
+        let h = document.createElement('span');
+
+        h.textContent = ['♡', '♥', '✦'][i % 3];
+
+        h.style.cssText = `
+            position: absolute;
+            left: ${Math.random() * 95}%;
+            top: ${55 + Math.random() * 40}%;
+            color: #ffc1ee;
+            font-size: ${15 + Math.random() * 20}px;
+            transition: transform 1.7s, opacity 1.7s;
+        `;
+
+        holder.append(h);
+
+        requestAnimationFrame(() => {
+            h.style.transform =
+                `translateY(-${80 + Math.random() * 120}px)`;
+
+            h.style.opacity = 0;
+        });
+    }
+
+    setTimeout(() => {
+        scene.classList.remove('active');
+    }, 1500);
+};
+
+// MENSAJE FINAL
+$('#last').onclick = () => {
+    $('#lastmsg').hidden = false;
+
+    $('#last').textContent = 'Mensaje descubierto ♡';
+    $('#last').disabled = true;
+
+    $('#lastmsg').scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+    });
+};
+
+// FONDO ANIMADO DE ESTRELLAS
+const canvas = $('#stars');
+const ctx = canvas.getContext('2d');
+
+let W, H, D;
+let stars = [];
+
+function resize() {
+    D = Math.min(devicePixelRatio || 1, 2);
+
+    W = innerWidth;
+    H = innerHeight;
+
+    canvas.width = W * D;
+    canvas.height = H * D;
+
+    ctx.setTransform(D, 0, 0, D, 0, 0);
+
+    stars = Array.from(
+        {
+            length: Math.min(
+                220,
+                Math.floor(W * H / 4200)
+            )
+        },
+        () => ({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            r: 0.3 + Math.random() * 1.3,
+            a: 0.25 + Math.random() * 0.7,
+            s: 0.08 + Math.random() * 0.25,
+            c: Math.random() > 0.8
+                ? '190,180,255'
+                : '155,210,255'
+        })
+    );
+}
+
+function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    stars.forEach(s => {
+        s.y -= s.s;
+
+        if (s.y < 0) {
+            s.y = H;
+            s.x = Math.random() * W;
+        }
+
+        ctx.beginPath();
+
+        ctx.arc(
+            s.x,
+            s.y,
+            s.r,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle = `rgba(${s.c},${s.a})`;
+        ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+}
+
+window.addEventListener('resize', resize);
+
+resize();
+draw();
+
+// INTENTO DE REPRODUCCIÓN AUTOMÁTICA
+window.addEventListener('load', () => {
+    try {
+        audio.play().catch(() => {});
+    } catch (e) {}
+});
