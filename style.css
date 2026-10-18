@@ -716,3 +716,133 @@ footer {
         transition-duration:.01ms!important
     }
 }
+
+
+/* ========================================
+   NUESTRA CANCIÓN: PORTADA CON FOTOGRAFÍA
+======================================== */
+
+#songSection .songcard {
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    gap: 7%;
+    align-items: center;
+    max-width: 760px;
+    margin: 28px auto;
+    padding: clamp(18px, 4vw, 35px);
+    border: 1px solid #bdbdff30;
+    border-radius: 22px;
+    background: linear-gradient(
+        135deg,
+        #191f4a,
+        #090d24
+    );
+}
+
+/* Portada */
+#songSection .cover {
+    position: relative;
+    aspect-ratio: 1;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    border-radius: 15px;
+    background: #111735;
+    box-shadow: 0 15px 35px #0005;
+}
+
+/* Fotografía */
+#songSection .cover img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Degradado para leer el texto */
+#songSection .cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(5, 7, 19, 0.92) 0%,
+        rgba(5, 7, 19, 0.45) 45%,
+        rgba(5, 7, 19, 0.02) 100%
+    );
+}
+
+/* Texto superpuesto */
+#songSection .cover-text {
+    position: absolute;
+    z-index: 1;
+    right: 18px;
+    bottom: 18px;
+    left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#songSection .cover-text strong {
+    font: clamp(1.6rem, 4vw, 2.6rem) Georgia, serif;
+    color: #fff;
+}
+
+#songSection .cover-text em {
+    color: #dfbdff;
+}
+
+#songSection .cover-text small {
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    color: #e6e7ff;
+}
+
+/* Información de la canción */
+#songSection .song-info p {
+    line-height: 1.8;
+}
+
+#songSection .song-info .primary {
+    width: 100%;
+}
+
+#songSection .bar {
+    height: 4px;
+    margin: 20px 0 8px;
+    overflow: hidden;
+    border-radius: 9px;
+    background: #9299c83d;
+}
+
+#songSection .bar i {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        #e6baff,
+        #a8dfff
+    );
+}
+
+#songSection #time {
+    color: #929fc9;
+    font-size: 0.7rem;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 650px) {
+    #songSection .songcard {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    #songSection .cover {
+        width: min(100%, 320px);
+        margin: auto;
+    }
+}
